@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Loads index{% endblock %}
+
+{% block body %}
+    <h1>Loads index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Create_date</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for load in loads %}
+            <tr>
+                <td>{{ load.id }}</td>
+                <td>{{ load.createDate ? load.createDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>
+                    <a href="{{ path('loads_show', {'id': load.id}) }}">show</a>
+                    <a href="{{ path('loads_edit', {'id': load.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+        <pre>
+        </pre>
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('loads_new') }}">Create new</a>
+{% endblock %}

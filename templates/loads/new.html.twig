@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Loads{% endblock %}
+
+{% block body %}
+    <h1>Create new Loads</h1>
+
+    {{ include('loads/_form.html.twig') }}
+
+    <a href="{{ path('loads_index') }}">back to list</a>
+{% endblock %}
