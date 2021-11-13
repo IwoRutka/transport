@@ -8,16 +8,25 @@
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>Create_date</th>
+                {# <th>Id</th> #}
+                <th>Zaladunek</th>
+                <th>Rozładunek</th>
+                <th>Pojazd</th>
+                <th>Zgłoszony</th>
+                <th>Zleceniodawca</th>
                 <th>actions</th>
             </tr>
         </thead>
         <tbody>
         {% for load in loads %}
             <tr>
-                <td>{{ load.id }}</td>
+                {# <td>{{ load.id }}</td> #}
+                <td>{{ load.loading }}</td>
+                <td>{{ load.unloading }}</td>
+                <td>{{ load.capacity }},
+              {{ load.vehicletype }}</td>
                 <td>{{ load.createDate ? load.createDate|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ load.addedBy }}</td>
                 <td>
                     <a href="{{ path('loads_show', {'id': load.id}) }}">show</a>
                     <a href="{{ path('loads_edit', {'id': load.id}) }}">edit</a>

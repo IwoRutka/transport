@@ -3,18 +3,28 @@
 {% block title %}Aktualności{% endblock %}
 
 {% block body %}
-  <h1>Aktualności</h1>
+  <div class="row">
+    <h1>TMS
+    </h1><br>
+    <div class="col-lg-1"></div>
+  </div>
+  <h1>Aktualności</h1><br>
 
   {% for article in articles %}
 
     <div class="row">
-      <h3>{{ article.title }}</h3>
+      <div class="col-lg-1"></div>
+      <div class="article-title col-lg-10">
+        <h4>{{ article.title }}</h4>
+        <br>
+      </div>
     </div>
     <div class="row">
-      <div class="col-5">
+      <div class="col-lg-1"></div>
+      <div class="article-img col-lg-5">
         <img src="{{ asset('upload/img/' ~ article.image)  }}"/>
       </div>
-      <div class="col-6">
+      <div class="col-lg-5">
         <p>{{ article.description }}</p><br>
         <p class="dataautor">{{ article.createDate ? article.createDate|date('Y-m-d') : '' }}
           {{ article.addedBy }}</p>
