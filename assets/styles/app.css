@@ -689,7 +689,7 @@ content .container{
 
 
 content .row{
-    text-align: left;
+    
     /* height: 100%; */
     /* min-height: 200px; */
     background-color: #F3F3F9;
@@ -698,7 +698,10 @@ content .row{
     /* margin: 6px; */
 }
 img{
-    max-width: 400px;
+
+    width: 520px;
+    height: 100%;
+    /* vertical-align: middle; */
 }
 
 .dataautor{
@@ -707,11 +710,18 @@ img{
 }
 
 .article-title{
-  margin-top: 18px;
+   margin: 18px 0px 0px 12px;
+   text-align: justify;
+}
+
+.article-description{
+ margin-left: 16px;
+ text-align: justify;
+  /* margin-top: 18px; */
 }
 
 .article-img{
-  text-align: center;
+  margin: 20px;
 }
 
 .article-footer{
