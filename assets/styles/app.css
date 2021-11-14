@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background: #fff;
+    background: #F3F3F9;
     color: #868e96;
     font-size: 14px;
   }
@@ -66,10 +66,12 @@ body {
     margin-top: 15px;
     padding: 15px;
     text-align: center;
+    color: #343957;
   }
-  .footer > p a {
-    color: #5873fe;
+  .footer > p a{
+    color: #343957;
   }
+  
   .bar-hidden {
     overflow-X: hidden;
   }
@@ -93,19 +95,6 @@ body {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
   }
 
-.logo {
-    background: #343957;
-    display: inline-block;
-    padding: 15px 0;
-    text-align: center;
-    width: 250px;
-    transition: width 300ms ease-in-out;
-  }
-  .logo span {
-    color: rgba(160, 180, 200, 0.85);
-    font-size: 20px;
-    font-weight: 700;
-  }
   .sidebar-hide .logo {
     width: 0;
   }
@@ -132,7 +121,7 @@ body {
     transition: width 300ms ease-in-out;
   }
   .logo span {
-    color: rgba(26, 1, 165, 0.85);
+    color: #1e2a78;
     font-size: 20px;
     font-weight: 700;
   }
@@ -293,6 +282,7 @@ body {
 .float-right {
     float: right!important;
 }
+
 
 @media (min-width: 1500px) {
     .container {
@@ -668,45 +658,27 @@ body {
 
 
 /****** addons *******/
-
-#about{
-    font-size: x-large;
-    text-align: center;
-    padding-top: 20px;
+.menu-icon{
+color:#1e2a78;
 }
 
-  /* **********************************STARE?***************************************** */
-
-
-   
-
-
-content .container{
-  width: 100%;
-    margin-top: 60px;
-    margin-bottom: 30px;
-}
-
-
-content .row{
-    
-    /* height: 100%; */
-    /* min-height: 200px; */
-    background-color: #F3F3F9;
-    /* border: gray 1px solid; */
-    /* padding: 12px; */
-    /* margin: 6px; */
-}
 img{
 
-    width: 520px;
-    height: 100%;
+    width: 400px;
+    height: 280px;
     /* vertical-align: middle; */
 }
 
 .dataautor{
+  font-size: small;
     text-align: right;
     margin-right: 20px;
+}
+
+.article-box{
+  background-color: #fff;
+margin-left: 20px;
+margin-right: 20px;
 }
 
 .article-title{
@@ -724,23 +696,50 @@ img{
   margin: 20px;
 }
 
-.article-footer{
-    border-bottom: 1px solid #dee2e6 !important;;
-}
-
-
 #about{
     font-size: x-large;
     text-align: center;
     padding-top: 20px;
-}
-.vehicles{
-    margin-top: 60px;
+    
 }
 
+#about .fa-facebook{
+  color: #3b5998;
+}
 
+.fa-info-circle{
+  font-size: x-large;
+  margin-right: 6px;
+}
+
+.fa-edit{
+  font-size: x-large;
+}
 
 .create_new{
     text-align: right;
 }
 
+table {
+  background-color: #fff;
+}
+  
+.table > :not(caption) > * > * {
+padding: 0.5rem 0rem;
+}
+table a{
+  color: #252525 !important;
+}
+table tbody tr:hover{
+  background-color: rgb(243, 250, 255);
+}
+.table > :not(:first-child) {
+  border-top: none;
+}
+table thead tr th{
+  padding: 0.5rem 0.5rem!important;
+
+}
+.table-value{
+  padding: 0rem 0.5rem;
+}

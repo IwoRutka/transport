@@ -65,6 +65,12 @@
         return false;
     });
 
+  
+
+        new quixSettings({
+            headerPosition: "fixed"
+        });
+        
 
     
 

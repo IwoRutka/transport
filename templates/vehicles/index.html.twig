@@ -3,52 +3,67 @@
 {% block title %}Vehicles index{% endblock %}
 
 {% block body %}
-  <div class="vehicles">
-    <div class="row">
-      <div class="tab_title col-3">
-        <h2>Pojazdy</h2>
-      </div>
-      <div class="create_new col-8">
-        <a class="btn btn-secondary" href="{{ path('vehicles_new') }}" role="button">Dodaj pojazd</a>
-      </div>
+  <div class="row">
+    <div class="tab_title col-3">
+      <h3>Pojazdy</h3><br>
     </div>
-    <table class="table">
-      <thead>
-        <tr>
-          {# <th>Id</th> #}
-          <th>Załadunek</th>
-          <th>Dostępność</th>
-          <th>Pojazd</th>
-          {# <th>Available_until</th> #}
-          <th>Zgłoszony</th>
-          <th>Przewoźnik</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for vehicle in vehicles %}
-          <tr>
-            {# <td>{{ vehicle.id }}</td> #}
-            <td>{{ vehicle.loading }}</td>
-            <td>{{ vehicle.availableFrom ? vehicle.availableFrom|date('d.m') : '' }}
-              -
-              {{ vehicle.availableUntil ? vehicle.availableUntil|date('d.m') : '' }}</td>
-            <td>{{ vehicle.capacity }},
-              {{ vehicle.vehicletype }}</td>
-            <td>{{ vehicle.createDate ? vehicle.createDate|date('d.m.Y') : '' }}</td>
-            <td>{{ vehicle.addedBy }}</td>
-            <td>
-              <a href="{{ path('vehicles_show', {'id': vehicle.id}) }}">show</a>
-              <a href="{{ path('vehicles_edit', {'id': vehicle.id}) }}">edit</a>
-            </td>
-          </tr>
-        {% else %}
-          <tr>
-            <td colspan="5">no records found</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+    <div class="create_new col-8">
+      <a class="btn btn-primary" href="{{ path('vehicles_new') }}" role="button">Dodaj pojazd</a>
+    </div>
   </div>
+  <table class="table header-border">
+    <thead>
+      <tr>
+        {# <th>Id</th> #}
+        <th>Załadunek</th>
+        <th>Dostępność</th>
+        <th>Pojazd</th>
+        {# <th>Available_until</th> #}
+        <th>Zgłoszony</th>
+        <th>Przewoźnik</th>
+        {# <th>Actions</th> #}
+      </tr>
+    </thead>
+    <tbody>
+      {% for vehicle in vehicles %}
+        <tr>
+
+          {# <td>{{ vehicle.id }}</td> #}
+          <td>
+            <a href="{{ path('vehicles_show', {'id': vehicle.id}) }}">
+              <div class="table-value">{{ vehicle.loading }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('vehicles_show', {'id': vehicle.id}) }}">
+              <div>{{ vehicle.availableFrom ? vehicle.availableFrom|date('d.m') : '' }}
+                -
+                {{ vehicle.availableUntil ? vehicle.availableUntil|date('d.m') : '' }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('vehicles_show', {'id': vehicle.id}) }}">
+              <div>{{ vehicle.capacity }}, {{ vehicle.vehicletype }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('vehicles_show', {'id': vehicle.id}) }}">
+              <div>{{ vehicle.createDate ? vehicle.createDate|date('d.m.Y') : '' }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('vehicles_show', {'id': vehicle.id}) }}">
+              <div>{{ vehicle.addedBy }}</div>
+            </a>
+          </td>
+
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="5">no records found</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
 {% endblock %}

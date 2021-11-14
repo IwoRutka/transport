@@ -3,44 +3,51 @@
 {% block title %}Loads index{% endblock %}
 
 {% block body %}
-    <h1>Loads index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                {# <th>Id</th> #}
-                <th>Zaladunek</th>
-                <th>Rozładunek</th>
-                <th>Pojazd</th>
-                <th>Zgłoszony</th>
-                <th>Zleceniodawca</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for load in loads %}
-            <tr>
-                {# <td>{{ load.id }}</td> #}
-                <td>{{ load.loading }}</td>
-                <td>{{ load.unloading }}</td>
-                <td>{{ load.capacity }},
-              {{ load.vehicletype }}</td>
-                <td>{{ load.createDate ? load.createDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ load.addedBy }}</td>
-                <td>
-                    <a href="{{ path('loads_show', {'id': load.id}) }}">show</a>
-                    <a href="{{ path('loads_edit', {'id': load.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
+  <div class="row">
+    <div class="tab_title col-3">
+      <h3>Ładunki</h3><br>
+    </div>
+    <div class="create_new col-8">
+      <a class="btn btn-primary" href="{{ path('loads_new') }}" role="button">Dodaj ładunek</a>
+    </div>
+  </div>
+
+  <table class="table">
+    <thead>
+      <tr>
+        {# <th>Id</th> #}
+        <th>Zaladunek</th>
+        <th>Rozładunek</th>
+        <th>Pojazd</th>
+        <th>Zgłoszony</th>
+        <th>Zleceniodawca</th>
+        <th>actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for load in loads %}
+        <tr>
+          {# <td>{{ load.id }}</td> #}
+          <td>{{ load.loading }}</td>
+          <td>{{ load.unloading }}</td>
+          <td>{{ load.capacity }},
+            {{ load.vehicletype }}</td>
+          <td>{{ load.createDate ? load.createDate|date('Y-m-d H:i:s') : '' }}</td>
+          <td>{{ load.addedBy }}</td>
+          <td>
+            <a href="{{ path('loads_show', {'id': load.id}) }}"><i class="fas fa-info-circle text-success"></i></a>
+            <a href="{{ path('loads_edit', {'id': load.id}) }}"><i class="fas fa-edit text-primary"></i></a>
+          </td>
+        </tr>
+      {% else %}
         <pre>
         </pre>
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <tr>
+          <td colspan="3">no records found</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
-    <a href="{{ path('loads_new') }}">Create new</a>
 {% endblock %}

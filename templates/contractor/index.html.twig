@@ -3,49 +3,56 @@
 {% block title %}Contractor index{% endblock %}
 
 {% block body %}
-    <h1>Contractor index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Country</th>
-                <th>Zip_code</th>
-                <th>City</th>
-                <th>Street</th>
-                <th>Number</th>
-                <th>Tax_id</th>
-                <th>Telephone</th>
-                <th>Email</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for contractor in contractors %}
-            <tr>
-                <td>{{ contractor.id }}</td>
-                <td>{{ contractor.name }}</td>
-                <td>{{ contractor.country }}</td>
-                <td>{{ contractor.zipCode }}</td>
-                <td>{{ contractor.city }}</td>
-                <td>{{ contractor.street }}</td>
-                <td>{{ contractor.number }}</td>
-                <td>{{ contractor.taxId }}</td>
-                <td>{{ contractor.telephone }}</td>
-                <td>{{ contractor.email }}</td>
-                <td>
-                    <a href="{{ path('contractor_show', {'id': contractor.id}) }}">show</a>
-                    <a href="{{ path('contractor_edit', {'id': contractor.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+  <div class="row">
+    <div class="tab_title col-3">
+      <h3>Kontrahenci</h3><br>
+    </div>
+    <div class="create_new col-8">
+      <a class="btn btn-primary" href="{{ path('contractor_new') }}" role="button">Dodaj kontrahenta</a>
+    </div>
+  </div>
 
-    <a href="{{ path('contractor_new') }}">Create new</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Country</th>
+        <th>Zip_code</th>
+        <th>City</th>
+        <th>Street</th>
+        <th>Number</th>
+        <th>Tax_id</th>
+        <th>Telephone</th>
+        <th>Email</th>
+        <th>actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for contractor in contractors %}
+        <tr>
+          <td>{{ contractor.id }}</td>
+          <td>{{ contractor.name }}</td>
+          <td>{{ contractor.country }}</td>
+          <td>{{ contractor.zipCode }}</td>
+          <td>{{ contractor.city }}</td>
+          <td>{{ contractor.street }}</td>
+          <td>{{ contractor.number }}</td>
+          <td>{{ contractor.taxId }}</td>
+          <td>{{ contractor.telephone }}</td>
+          <td>{{ contractor.email }}</td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}"><i class="fas fa-info-circle text-success"></i></a>
+            <a href="{{ path('contractor_edit', {'id': contractor.id}) }}"><i class="fas fa-edit text-primary"></i></a>
+          </td>
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="11">no records found</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
 {% endblock %}
