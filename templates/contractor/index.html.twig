@@ -26,25 +26,60 @@
         <th>Tax_id</th>
         <th>Telephone</th>
         <th>Email</th>
-        <th>actions</th>
       </tr>
     </thead>
     <tbody>
       {% for contractor in contractors %}
         <tr>
-          <td>{{ contractor.id }}</td>
-          <td>{{ contractor.name }}</td>
-          <td>{{ contractor.country }}</td>
-          <td>{{ contractor.zipCode }}</td>
-          <td>{{ contractor.city }}</td>
-          <td>{{ contractor.street }}</td>
-          <td>{{ contractor.number }}</td>
-          <td>{{ contractor.taxId }}</td>
-          <td>{{ contractor.telephone }}</td>
-          <td>{{ contractor.email }}</td>
           <td>
-            <a href="{{ path('contractor_show', {'id': contractor.id}) }}"><i class="fas fa-info-circle text-success"></i></a>
-            <a href="{{ path('contractor_edit', {'id': contractor.id}) }}"><i class="fas fa-edit text-primary"></i></a>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.name }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.name }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.country }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.zipCode }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.city }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.street }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.number }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.taxId }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.telephone }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('contractor_show', {'id': contractor.id}) }}">
+              <div class="table-value">{{ contractor.email }}</div>
+            </a>
           </td>
         </tr>
       {% else %}

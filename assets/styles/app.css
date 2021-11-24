@@ -1,4 +1,5 @@
 @import "~bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Leckerli+One&display=swap');
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -121,7 +122,9 @@ body {
     transition: width 300ms ease-in-out;
   }
   .logo span {
-    color: #1e2a78;
+    font-family: 'Leckerli One', cursive;
+    color: #5500AA;
+    letter-spacing: 6px;
     font-size: 20px;
     font-weight: 700;
   }
@@ -703,8 +706,8 @@ margin-right: 20px;
     
 }
 
-#about .fa-facebook{
-  color: #3b5998;
+#about .fa-linkedin{
+  color: #0e76a8;
 }
 
 .fa-info-circle{

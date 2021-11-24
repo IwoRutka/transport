@@ -14,21 +14,16 @@
   <table class="table header-border">
     <thead>
       <tr>
-        {# <th>Id</th> #}
         <th>Załadunek</th>
         <th>Dostępność</th>
         <th>Pojazd</th>
-        {# <th>Available_until</th> #}
         <th>Zgłoszony</th>
         <th>Przewoźnik</th>
-        {# <th>Actions</th> #}
       </tr>
     </thead>
     <tbody>
       {% for vehicle in vehicles %}
         <tr>
-
-          {# <td>{{ vehicle.id }}</td> #}
           <td>
             <a href="{{ path('vehicles_show', {'id': vehicle.id}) }}">
               <div class="table-value">{{ vehicle.loading }}</div>

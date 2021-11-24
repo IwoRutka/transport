@@ -16,28 +16,41 @@
   <table class="table">
     <thead>
       <tr>
-        {# <th>Id</th> #}
         <th>Zaladunek</th>
         <th>Rozładunek</th>
         <th>Pojazd</th>
         <th>Zgłoszony</th>
         <th>Zleceniodawca</th>
-        <th>actions</th>
       </tr>
     </thead>
     <tbody>
       {% for load in loads %}
         <tr>
-          {# <td>{{ load.id }}</td> #}
-          <td>{{ load.loading }}</td>
-          <td>{{ load.unloading }}</td>
-          <td>{{ load.capacity }},
-            {{ load.vehicletype }}</td>
-          <td>{{ load.createDate ? load.createDate|date('Y-m-d H:i:s') : '' }}</td>
-          <td>{{ load.addedBy }}</td>
           <td>
-            <a href="{{ path('loads_show', {'id': load.id}) }}"><i class="fas fa-info-circle text-success"></i></a>
-            <a href="{{ path('loads_edit', {'id': load.id}) }}"><i class="fas fa-edit text-primary"></i></a>
+            <a href="{{ path('loads_show', {'id': load.id}) }}">
+              <div class="table-value">{{ load.loading }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('loads_show', {'id': load.id}) }}">
+              <div class="table-value">{{ load.unloading }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('loads_show', {'id': load.id}) }}">
+              <div class="table-value">{{ load.capacity }},
+                {{ load.vehicletype }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('loads_show', {'id': load.id}) }}">
+              <div class="table-value">{{ load.createDate ? load.createDate|date('Y-m-d H:i:s') : '' }}</div>
+            </a>
+          </td>
+          <td>
+            <a href="{{ path('loads_show', {'id': load.id}) }}">
+              <div class="table-value">{{ load.addedBy }}</div>
+            </a>
           </td>
         </tr>
       {% else %}
