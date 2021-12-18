@@ -8,11 +8,15 @@
 // any CSS you import will output into a single css file (app.css in this case)
 import './styles/all.css';
 import './styles/app.css';
+import './styles/materialize.min.css'
 import './styles/helper/sidebar.css';
 
-// any CSS you import will output into a single css file (app.css in this case)
-import './js/scripts.js';
+// any JS you import will output into a single js file
+
+
+import './js/lib/settings.js';
 import './js/lib/sidebar.js';
+import './js/scripts.js';
 
 // start the Stimulus application
 import './bootstrap';

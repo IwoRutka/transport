@@ -67,9 +67,9 @@
 
   
 
-        new quixSettings({
-            headerPosition: "fixed"
-        });
+        // new quixSettings({
+        //     headerPosition: "fixed"
+        // });
         
 
     

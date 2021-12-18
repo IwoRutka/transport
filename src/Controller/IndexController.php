@@ -23,7 +23,7 @@ class IndexController extends AbstractController
     public function index(ArticlesRepository $articlesRepository): Response
     {
         return $this->render('articles/index.html.twig', [
-            'articles' => $articlesRepository->findAll(),
+            'articles' => $articlesRepository->findBy([], ['id' => 'DESC'])
         ]);
     }
 
