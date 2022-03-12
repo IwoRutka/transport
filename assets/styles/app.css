@@ -114,7 +114,7 @@ body {
     transition: margin-left 300ms ease-in-out 0s;
   }
   .logo {
-    background: #fff;
+    background: #1e2a78;
     display: inline-block;
     padding: 15px 0;
     text-align: center;
@@ -122,8 +122,8 @@ body {
     transition: width 300ms ease-in-out;
   }
   .logo span {
-    font-family: 'Leckerli One', cursive;
-    color: #5500AA;
+    /* font-family: 'Leckerli One', cursive; */
+    color: #fff;
     letter-spacing: 6px;
     font-size: 20px;
     font-weight: 700;
