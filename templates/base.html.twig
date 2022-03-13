@@ -22,28 +22,15 @@
   <body>
     <div class="container">
       {% include 'menu/menu.html.twig' %}
-      {% include 'header/topbar.html.twig' %}
-      <div class="row">
-        <h1>TMS
-        </h1><br>
-        <div class="col-lg-1"></div>
-      </div>
-      <div class="content-wrap">
-        <div class="main">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-lg-12 p-r-0 title-margin-right">
-                {% block body %}{% endblock %}
-                {% include 'footer/footer.html.twig' %}
-              </div>
-            </div>
-          </div>
-        </div>
-
+      <div class="main">
+        {% include 'header/topbar.html.twig' %}
+        <br><br>
+        {% block body %}{% endblock %}
+        {% include 'footer/footer.html.twig' %}
       </div>
     </div>
     <script>
-      //Add hoveres class in selected list item
+      //Add hovered class in selected list item
       let list = document.querySelectorAll('.sidebar li');
       console.log(list);
       function activeLink() {

@@ -25,6 +25,9 @@ body
     position: relative;
     width: 100%;
 }
+
+/* menu */
+
 .sidebar
 {
     position: fixed;
@@ -110,5 +113,74 @@ body
     padding: 0 12px;
     height: 40px;
     line-height: 40px;
+
+}
+
+/* main */
+
+.main{
+    position: absolute;
+    width: calc(100% - 180px);
+    left: 180px;
+    min-height: 100vh;
+    background: var(--background-primary);
+    transition: 0.5s;
+}
+.topbar
+{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+}
+.toggle
+{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    color: var(--background-secendary);
+}
+.search
+{
+    position: relative;
+    width: 420px;
+    margin: 0 12px;
+}
+.search label
+{
+    position: relative;
+    width: 100%;
+}
+.search label input
+{
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    padding: 0px 20px;
+    padding-left: 30px;
+    outline: none;
+    border: none;
+}
+.search label .material-icons
+{
+    position: absolute;
+    top: 2px;
+    left: 10px;
+    font-size: 1.2em;
+}
+.user
+{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
 
 }
