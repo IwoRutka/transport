@@ -16,28 +16,41 @@
     {% block javascripts %}
       {{ encore_entry_script_tags('app') }}
     {% endblock %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
   </head>
   <body>
-    {% include 'menu/menu.html.twig' %}
-    {% include 'header/topbar.html.twig' %}
+    <div class="container">
+      {% include 'menu/menu.html.twig' %}
+      {% include 'header/topbar.html.twig' %}
       <div class="row">
-    <h1>TMS
-    </h1><br>
-    <div class="col-lg-1"></div>
-  </div>
-    <div class="content-wrap">
-      <div class="main">
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col-lg-12 p-r-0 title-margin-right">
-              {% block body %}{% endblock %}
-              {% include 'footer/footer.html.twig' %}
+        <h1>TMS
+        </h1><br>
+        <div class="col-lg-1"></div>
+      </div>
+      <div class="content-wrap">
+        <div class="main">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-lg-12 p-r-0 title-margin-right">
+                {% block body %}{% endblock %}
+                {% include 'footer/footer.html.twig' %}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      
-    </div>
 
+      </div>
+    </div>
+    <script>
+      //Add hoveres class in selected list item
+      let list = document.querySelectorAll('.sidebar li');
+      console.log(list);
+      function activeLink() {
+        list.forEach((item) => item.classList.remove('hovered'));
+        this.classList.add('hovered');
+      }
+      list.forEach((item) => item.addEventListener('mouseover', activeLink));
+    </script>
   </body>
 </html>
