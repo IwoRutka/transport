@@ -24,15 +24,26 @@
       {% include 'menu/menu.html.twig' %}
       <div class="main">
         {% include 'header/topbar.html.twig' %}
-        <br><br>
         {% block body %}{% endblock %}
         {% include 'footer/footer.html.twig' %}
       </div>
     </div>
     <script>
+      //menu toggle
+      let toggle = document.querySelector('.toggle');
+      let sidebar = document.querySelector('.sidebar');
+      let main = document.querySelector('.main');
+      let topbar = document.querySelector('.topbar');
+      
+      toggle.onclick = function() {
+        sidebar.classList.toggle('active');
+        main.classList.toggle('active');
+        topbar.classList.toggle('active');
+        toggle.classList.toggle('active');
+      };
+     
       //Add hovered class in selected list item
       let list = document.querySelectorAll('.sidebar li');
-      console.log(list);
       function activeLink() {
         list.forEach((item) => item.classList.remove('hovered'));
         this.classList.add('hovered');
