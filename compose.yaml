@@ -1,5 +1,4 @@
-version: '3.8'
-
+name: transport
 services:
   php:
     build:
@@ -12,6 +11,8 @@ services:
         condition: service_healthy
     networks:
       - transport-network
+    env_file:
+      - .env
 
   nginx:
     image: nginx:alpine
@@ -24,6 +25,8 @@ services:
       - php
     networks:
       - transport-network
+    env_file:
+      - .env
 
   database:
     image: mysql:8.0
@@ -43,10 +46,14 @@ services:
       retries: 5
     networks:
       - transport-network
+    env_file:
+      - .env
 
 volumes:
   db-data:
+    name: transport-db-data
 
 networks:
   transport-network:
+    name: transport-network
     driver: bridge
