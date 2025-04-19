@@ -16,4 +16,6 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
+COPY ./docker/php/php.ini /usr/local/etc/php/conf.d/php.ini
+
 RUN chown -R www-data:www-data /var/www/html

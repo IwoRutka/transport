@@ -42,11 +42,6 @@ class Address
      */
     private $vehicles;
 
-    /**
-     * @ORM\OneToOne(targetEntity=Loads::class, mappedBy="loading", cascade={"persist", "remove"})
-     */
-    private $loads;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -60,7 +55,6 @@ class Address
     public function setCountry(string $country): self
     {
         $this->country = $country;
-
         return $this;
     }
 
@@ -72,7 +66,6 @@ class Address
     public function setShortCountry(string $short_country): self
     {
         $this->short_country = $short_country;
-
         return $this;
     }
 
@@ -84,7 +77,6 @@ class Address
     public function setZipCode(string $zip_code): self
     {
         $this->zip_code = $zip_code;
-
         return $this;
     }
 
@@ -96,7 +88,6 @@ class Address
     public function setCity(string $city): self
     {
         $this->city = $city;
-
         return $this;
     }
 
@@ -107,35 +98,16 @@ class Address
 
     public function setVehicles(Vehicles $vehicles): self
     {
-        // set the owning side of the relation if necessary
         if ($vehicles->getLoading() !== $this) {
             $vehicles->setLoading($this);
         }
 
         $this->vehicles = $vehicles;
-
-        return $this;
-    }
-
-    public function getLoads(): ?Loads
-    {
-        return $this->loads;
-    }
-
-    public function setLoads(Loads $loads): self
-    {
-        // set the owning side of the relation if necessary
-        if ($loads->getLoading() !== $this) {
-            $loads->setLoading($this);
-        }
-
-        $this->loads = $loads;
-
         return $this;
     }
 
     public function __toString()
     {
-      return $this->getShortCountry().', '.$this->getZipCode().', '.$this->getCity();
+        return $this->getShortCountry().', '.$this->getZipCode().', '.$this->getCity();
     }
 }

@@ -3,12 +3,51 @@
 System zarządzania transportem
 
 ## Wymagania
-- PHP 8.0 lub wyższy
-- Composer
-- MySQL/MariaDB
-- Symfony CLI
+- Docker (minimum version 20.10.0)
+- Docker Compose (minimum version 2.0.0)
 
-## Instalacja
+## Instalacja (Docker)
+1. Sklonuj repozytorium
+```bash
+git clone [url_repozytorium]
+```
+
+2. Uruchom kontenery Docker (pierwsze uruchomienie może potrwać kilka minut)
+```bash
+docker-compose up -d
+```
+
+3. Poczekaj aż kontenery się uruchomią (ok. 30 sekund), następnie zaimportuj bazę danych
+```bash
+docker-compose exec -T database mysql -uroot -proot transport < transport_backup.sql
+```
+
+4. Aplikacja będzie dostępna pod adresem:
+```
+http://localhost:8080
+```
+
+## Struktura kontenerów
+- PHP 8.1 (FPM)
+- Nginx
+- MySQL 8.0
+- Mailcatcher (do testowania maili)
+
+## Przydatne komendy Docker
+- Zatrzymanie kontenerów: `docker-compose down`
+- Restart kontenerów: `docker-compose restart`
+- Podgląd logów: `docker-compose logs -f`
+- Dostęp do kontenera PHP: `docker-compose exec php bash`
+- Dostęp do bazy danych: `docker-compose exec database mysql -uroot -proot transport`
+
+## Rozwiązywanie problemów
+1. Jeśli port 3306 jest zajęty, zatrzymaj lokalny serwer MySQL:
+   - Na Ubuntu/Debian: `sudo service mysql stop`
+   - Na macOS: `brew services stop mysql`
+
+2. Jeśli widzisz błąd "Connection refused", poczekaj kilka sekund - baza danych może jeszcze się uruchamiać
+
+## Instalacja (Lokalna)
 1. Sklonuj repozytorium
 ```bash
 git clone [url_repozytorium]

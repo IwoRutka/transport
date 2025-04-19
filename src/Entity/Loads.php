@@ -18,13 +18,13 @@ class Loads
     private $id;
 
     /**
-     * @ORM\OneToOne(targetEntity=Address::class, inversedBy="loads", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=Address::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $loading;
 
     /**
-     * @ORM\OneToOne(targetEntity=Address::class, inversedBy="loads", cascade={"persist", "remove"})
+     * @ORM\ManyToOne(targetEntity=Address::class)
      * @ORM\JoinColumn(nullable=false)
      */
     private $unloading;
@@ -62,10 +62,9 @@ class Loads
         return $this->loading;
     }
 
-    public function setLoading(Address $loading): self
+    public function setLoading(?Address $loading): self
     {
         $this->loading = $loading;
-
         return $this;
     }
 
@@ -74,10 +73,9 @@ class Loads
         return $this->unloading;
     }
 
-    public function setUnloading(Address $unloading): self
+    public function setUnloading(?Address $unloading): self
     {
         $this->unloading = $unloading;
-
         return $this;
     }
 
@@ -89,7 +87,6 @@ class Loads
     public function setCapacity(Capacity $capacity): self
     {
         $this->capacity = $capacity;
-
         return $this;
     }
 
@@ -101,7 +98,6 @@ class Loads
     public function setVehicleType(VehicleType $vehicle_type): self
     {
         $this->vehicle_type = $vehicle_type;
-
         return $this;
     }
 
@@ -113,7 +109,6 @@ class Loads
     public function setCreateDate(\DateTimeInterface $create_date): self
     {
         $this->create_date = $create_date;
-
         return $this;
     }
 
@@ -125,7 +120,6 @@ class Loads
     public function setAddedBy(Contractor $added_by): self
     {
         $this->added_by = $added_by;
-
         return $this;
     }
 }
