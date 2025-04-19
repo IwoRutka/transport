@@ -1,4 +1,5 @@
 ###> symfony/framework-bundle ###
+/.env
 /.env.local
 /.env.local.php
 /.env.*.local
@@ -43,3 +44,9 @@ docker-compose.override.yaml
 .idea/
 .vscode/
 ###< IDE ###
+
+###> Backup files ###
+*.bak
+*.backup
+*~
+###< Backup files ###
