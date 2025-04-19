@@ -12,19 +12,19 @@ System zarządzania transportem
 git clone [url_repozytorium]
 ```
 
-2. Uruchom kontenery Docker (pierwsze uruchomienie może potrwać kilka minut)
+2. Skopiuj plik .env.dist do .env i ustaw własne hasła
+```bash
+cp .env.dist .env
+```
+
+3. Uruchom kontenery Docker (pierwsze uruchomienie może potrwać kilka minut)
 ```bash
 docker-compose up -d
 ```
 
-3. Poczekaj aż kontenery się uruchomią (ok. 30 sekund), następnie zaimportuj bazę danych
+4. Poczekaj aż kontenery się uruchomią (ok. 30 sekund), następnie zaimportuj bazę danych
 ```bash
-docker-compose exec -T database mysql -uroot -proot transport < transport_backup.sql
-```
-
-4. Aplikacja będzie dostępna pod adresem:
-```
-http://localhost:8080
+docker-compose exec -T database mysql -u$MYSQL_USER -p$MYSQL_PASSWORD $MYSQL_DATABASE < transport_backup.sql
 ```
 
 ## Struktura kontenerów
@@ -38,7 +38,7 @@ http://localhost:8080
 - Restart kontenerów: `docker-compose restart`
 - Podgląd logów: `docker-compose logs -f`
 - Dostęp do kontenera PHP: `docker-compose exec php bash`
-- Dostęp do bazy danych: `docker-compose exec database mysql -uroot -proot transport`
+- Dostęp do bazy danych: `docker-compose exec database mysql -u $MYSQL_USER -p $MYSQL_DATABASE`
 
 ## Rozwiązywanie problemów
 1. Jeśli port 3306 jest zajęty, zatrzymaj lokalny serwer MySQL:
@@ -46,6 +46,14 @@ http://localhost:8080
    - Na macOS: `brew services stop mysql`
 
 2. Jeśli widzisz błąd "Connection refused", poczekaj kilka sekund - baza danych może jeszcze się uruchamiać
+
+## Zmienne środowiskowe
+Przed uruchomieniem aplikacji skopiuj `.env.dist` do `.env` i ustaw następujące zmienne:
+- `MYSQL_ROOT_PASSWORD` - hasło dla użytkownika root bazy danych
+- `MYSQL_DATABASE` - nazwa bazy danych (domyślnie: transport)
+- `MYSQL_USER` - nazwa użytkownika bazy danych
+- `MYSQL_PASSWORD` - hasło użytkownika bazy danych
+- `DATABASE_URL` - URL połączenia do bazy danych (format: mysql://user:pass@host:3306/dbname)
 
 ## Instalacja (Lokalna)
 1. Sklonuj repozytorium
