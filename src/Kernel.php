@@ -11,6 +11,15 @@ class Kernel extends BaseKernel
 {
     use MicroKernelTrait;
 
+    public function boot(): void
+    {
+        // Load custom PHP configuration
+        if (file_exists($this->getProjectDir() . '/php.ini')) {
+            @parse_ini_file($this->getProjectDir() . '/php.ini');
+        }
+        parent::boot();
+    }
+
     protected function configureContainer(ContainerConfigurator $container): void
     {
         $container->import('../config/{packages}/*.yaml');

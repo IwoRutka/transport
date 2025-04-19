@@ -26,4 +26,4 @@ import $ from 'jquery';
 
 
 // create global $ and jQuery variables
- global.$ = global.jQuery = $;
+window.$ = window.jQuery = $;
